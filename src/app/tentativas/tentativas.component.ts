@@ -22,7 +22,6 @@ export class TentativasComponent implements OnInit, OnChanges {
 
   ngOnChanges(){  // é executado durante a inicialização das decorações 
     if(this.tentativas !== this.coracoes.length){
-      
       let indice = this.coracoes.length - this.tentativas; // 3 - 2 = 1 ...
       this.coracoes[indice - 1].cheio= false
     }
