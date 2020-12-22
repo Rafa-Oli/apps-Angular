@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'restaurantes', component: RestaurantesComponent },
   { path: 'diversao', component: DiversaoComponent },
   { path: 'oferta', component: OfertaComponent },
+  { path: 'oferta/:id', component: OfertaComponent },
 
 ];
 
