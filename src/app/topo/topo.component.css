@@ -10,13 +10,13 @@
     color: #FFF
 }
 
-.banner {
-    margin-top: 130px;
-}
 
-.banner img {
+
+#imagem img {
+    margin-top: 135px;
+
     width: 100%;
-    height: 230px
+  
 }
 
 .active {
