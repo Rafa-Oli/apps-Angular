@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router'
+
 
 @Component({
   selector: 'app-como-usar',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComoUsarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.parent.snapshot.params['id'] // acessando parametros da rota pai
   }
 
 }
