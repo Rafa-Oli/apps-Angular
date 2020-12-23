@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
+import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fromEvent } from 'rxjs';
 import {OfertasService} from '../ofertas.service'
 import { Oferta } from '../shared/oferta.model';
+
 
 @Component({
   selector: 'app-oferta',
@@ -10,7 +12,7 @@ import { Oferta } from '../shared/oferta.model';
   providers: [OfertasService]
 })
 export class OfertaComponent implements OnInit {
-  public oferta: Oferta
+  public oferta: Oferta;
 
   constructor(private route: ActivatedRoute, private ofertasService: OfertasService) {}
 
@@ -22,11 +24,18 @@ export class OfertaComponent implements OnInit {
 
 
     
-   /* utilizando o subscribe
+   /* utilizando o subscribe 
+   Observable
   this.route.params.subscribe((parametro : any) =>{
     console.log(parametro.id)
   })
   */
+
+  let tempo= interval(2000)
+ //instrucao
+  tempo.subscribe((intervalo: number) => {
+    console.log(intervalo)
+  }) 
 
 
   }
