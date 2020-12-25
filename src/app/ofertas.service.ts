@@ -1,10 +1,11 @@
 import { Oferta } from './shared/oferta.model'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { URL_API } from './app.api';
 import { Observable } from 'rxjs';
  
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/retry';
 
 
 @Injectable()
@@ -17,7 +18,7 @@ export class OfertasService{
         //efetuar uma requisição http
       return this.http.get(`${URL_API}/ofertas?destaque=true`)
         .toPromise()
-      .then((resposta: any) => resposta)
+        .then((resposta: any) => resposta)
         //retornar um promise Oferta[]
     }
 
@@ -51,6 +52,6 @@ export class OfertasService{
   }
  //utilizando _like traz resultados com aproximação 
   public pesquisaOfertas(termo: string): Observable<Oferta[]>{
-    return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`).map((resposta: any) => resposta)
+    return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`).retry(10).map((resposta: any) => resposta)
   }
 }
