@@ -13,7 +13,7 @@ import '../utils/rxjs-extensions'
 export class TopoComponent implements OnInit {
 
  public ofertas: Observable<Oferta[]>
- public ofertas2: Oferta[]
+ 
  private subjectPesquisa: Subject<string> = new Subject<string>(); //observador
  
 
@@ -24,7 +24,6 @@ export class TopoComponent implements OnInit {
       .debounceTime(1000)  // executa a ação do switchMap após 1 segundo
       .distinctUntilChanged() // verifica se é o msm termo de busca anterior
       .switchMap((termo: string) =>{
-        console.log(termo)
         if(termo.trim() === ''){
           //retornar um observable de array de ofertas vazio
           return Observable.of<Oferta[]>([])
@@ -36,11 +35,12 @@ export class TopoComponent implements OnInit {
         return Observable.of<Oferta[]>([])
       })
 
-      this.ofertas.subscribe((ofertas: Oferta[]) => this.ofertas2 = ofertas )
   }
-
-
   public pesquisa(termoDaBusca: string): void{
    this.subjectPesquisa.next(termoDaBusca)
+  }
+
+  public limpaPesquisa(): void{
+    this.subjectPesquisa.next('')
   }
 }
