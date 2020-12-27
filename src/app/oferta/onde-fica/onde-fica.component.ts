@@ -16,7 +16,7 @@ export class OndeFicaComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.parent.params.subscribe((parametros: Params) => { // acessando parametros da rota pai
-      this.ofertasServices.getComoUsarOfertaPorId(parametros.id)
+      this.ofertasServices.getOndeFicaOfertaPorId(parametros.id)
         .then((resposta: any) => {
           this.ondeFica = resposta
         })
