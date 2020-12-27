@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+//pipe
+import {DescricaoReduzida} from './utils/descricao-reduzida.pipe';
+
 import { registerLocaleData } from '@angular/common';
 import ptBr from '@angular/common/locales/pt';
 import {ReactiveFormsModule} from '@angular/forms';
@@ -27,7 +30,8 @@ registerLocaleData(ptBr);
     DiversaoComponent,
     OfertaComponent,
     ComoUsarComponent,
-    OndeFicaComponent
+    OndeFicaComponent,
+    DescricaoReduzida
   ],
   imports: [
     BrowserModule,

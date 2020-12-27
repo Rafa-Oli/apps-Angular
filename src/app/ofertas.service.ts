@@ -3,8 +3,7 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { URL_API } from './app.api';
 import { Observable } from 'rxjs';
-import { map, retry} from 'rxjs/operators';
- 
+import { map, retry } from '../../node_modules/rxjs/operators';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/retry';
