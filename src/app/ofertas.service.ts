@@ -3,9 +3,12 @@ import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { URL_API } from './app.api';
 import { Observable } from 'rxjs';
+import { map, retry} from 'rxjs/operators';
  
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/retry';
+
 
 
 @Injectable()
@@ -53,5 +56,7 @@ export class OfertasService{
  //utilizando _like traz resultados com aproximação 
   public pesquisaOfertas(termo: string): Observable<Oferta[]>{
     return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`).retry(10).map((resposta: any) => resposta)
+
+  
   }
 }
