@@ -98,6 +98,6 @@ public pedido: Pedido = new Pedido('', '', '' ,'')
     this.pedido.formaPagamento = this.formaPagamento
     
     
-    this.ordemCompraService.efetivarCompra(this.pedido)
+    this.ordemCompraService.efetivarCompra(this.pedido).subscribe()
   }
 }
