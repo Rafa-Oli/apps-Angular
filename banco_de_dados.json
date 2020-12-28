@@ -220,6 +220,20 @@
       "complemento": "fgfdgfd",
       "formaPagamento": "dinheiro",
       "id": 5
+    },
+    {
+      "endereco": "fdhgfd",
+      "numero": "fgfd",
+      "complemento": "fgfgfd",
+      "formaPagamento": "debito",
+      "id": 6
+    },
+    {
+      "endereco": "fdhfd",
+      "numero": "dfd",
+      "complemento": "df",
+      "formaPagamento": "debito",
+      "id": 7
     }
   ]
 }

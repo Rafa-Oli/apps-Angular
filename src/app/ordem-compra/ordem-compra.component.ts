@@ -13,6 +13,8 @@ export class OrdemCompraComponent implements OnInit {
   
 
   @ViewChild('formulario') public formulario: NgForm
+  
+  public idPedidoCompra: number
 
   constructor(private ordemCompraService: OrdemCompraService) { }
 
@@ -22,6 +24,6 @@ export class OrdemCompraComponent implements OnInit {
     let pedido: Pedido = new Pedido(this.formulario.value.endereco, this.formulario.value.numero,
       this.formulario.value.complemento, this.formulario.value.formaPagamento);
 
-    this.ordemCompraService.efetivarCompra(pedido).subscribe(resposta => console.log('Pedido cadastrado id do pedido: ' + resposta.id))
+    this.ordemCompraService.efetivarCompra(pedido).subscribe(resposta => console.log(this.idPedidoCompra = resposta.id))
   }
 }
