@@ -192,6 +192,27 @@
       "complemento": "A",
       "formaPagamento": "dinheiro",
       "id": 1
+    },
+    {
+      "endereco": "rua teeste",
+      "numero": "0",
+      "complemento": "A",
+      "formaPagamento": "debito",
+      "id": 2
+    },
+    {
+      "endereco": "r",
+      "numero": "6",
+      "complemento": "9",
+      "formaPagamento": "dinheiro",
+      "id": 3
+    },
+    {
+      "endereco": "rua teste",
+      "numero": "4",
+      "complemento": "B",
+      "formaPagamento": "dinheiro",
+      "id": 4
     }
   ]
 }

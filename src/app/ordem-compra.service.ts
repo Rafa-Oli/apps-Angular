@@ -27,6 +27,6 @@ export class OrdemCompraService{
           JSON.stringify(pedido),
          options
         )
-        .map(response => console.log(response))
+        .map(response => response)
     }
 }
