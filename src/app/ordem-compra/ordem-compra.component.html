@@ -83,7 +83,7 @@
           </div>
         </div>
 
-        <div class="form-group col-md-2">
+        <div class="form-group col-md-2" style="margin-top: 30px;">
           <input type="text"
             class="form-control {{ numeroEstadoPrimitivo ? '' : numeroValido ? 'is-valid' : 'is-invalid'}}"
             placeholder="Número" autocomplete="off" minlength="1" required [value]='numero' #inputNumero
@@ -140,7 +140,7 @@
       </div>
 
       <hr />
-      <button type="submit" class="btn btn-primary btn-lg">Cofirmar compra</button>
+      <button type="submit" class="btn btn-primary btn-lg"[disabled] = 'formEstado'>Cofirmar compra</button>
     </form>
   </div>
 </div>
