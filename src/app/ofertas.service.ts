@@ -55,7 +55,5 @@ export class OfertasService{
  //utilizando _like traz resultados com aproximação 
   public pesquisaOfertas(termo: string): Observable<Oferta[]>{
     return this.http.get(`${URL_API}/ofertas?descricao_oferta_like=${termo}`).retry(10).map((resposta: any) => resposta)
-
-  
   }
 }
