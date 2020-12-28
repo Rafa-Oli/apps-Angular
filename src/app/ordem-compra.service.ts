@@ -20,8 +20,6 @@ export class OrdemCompraService{
         let options = {
             headers: headers
         }
-
-
         return this.http.post(
           `${URL_API}/pedidos`,
           JSON.stringify(pedido),
