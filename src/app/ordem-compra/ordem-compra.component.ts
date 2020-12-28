@@ -7,7 +7,7 @@ import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 })
 export class OrdemCompraComponent implements OnInit {
   public endereco: string = ''
-  public numero: string
+  public numero: string =''
   public complemento: string = ''
   public formaPagamento: string =''
 
@@ -17,12 +17,20 @@ export class OrdemCompraComponent implements OnInit {
   public complementoValido: boolean 
   public formaPagamentoValido:boolean 
 
+  //estados primitivos dos campos(pristine)
+  public enderecoEstadoPrimitivo: boolean = true
+  public numeroEstadoPrimitivo: boolean = true
+  public complementoEstadoPrimitivo: boolean = true
+  public formaPagamentoEstadoPrimitivo: boolean = true
+
   constructor() { }
 
   ngOnInit(): void {
   }
   atualizaEndereco(endereco: string): void{
   this.endereco = endereco
+  this.enderecoEstadoPrimitivo = false
+
   //se a string for maior que 3
   if(this.endereco.length){
     this.enderecoValido = true
@@ -32,6 +40,8 @@ export class OrdemCompraComponent implements OnInit {
   }
   atualizaNumero(numero: string): void{
   this.numero= numero
+    this.numeroEstadoPrimitivo = false
+
     if (this.numero.length > 0) {
       this.numeroValido = true
     } else {
@@ -40,12 +50,14 @@ export class OrdemCompraComponent implements OnInit {
   }
   atualizaComplemento(complemento: string): void{
   this.complemento= complemento
+    this.complementoEstadoPrimitivo = false
     if (this.complemento.length > 0) {
       this.complementoValido = true
     }
   }
   atualizaFormaPagamento(formaPagamento: string): void{
   this.formaPagamento= formaPagamento
+    this.formaPagamentoEstadoPrimitivo = false
     if (this.formaPagamento.length > 0) {
       this.formaPagamentoValido = true
     } else {
