@@ -234,6 +234,20 @@
       "complemento": "df",
       "formaPagamento": "debito",
       "id": 7
+    },
+    {
+      "endereco": "Rua Maria das Flores",
+      "numero": "45",
+      "complemento": "casa 2",
+      "formaPagamento": "dinheiro",
+      "id": 8
+    },
+    {
+      "endereco": "rua programa",
+      "numero": "45",
+      "complemento": "A",
+      "formaPagamento": "dinheiro",
+      "id": 9
     }
   ]
 }
