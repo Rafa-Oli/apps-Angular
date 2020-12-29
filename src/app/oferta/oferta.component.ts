@@ -19,8 +19,6 @@ export class OfertaComponent implements OnInit {
 
   
   ngOnInit(): void {
-    console.log(this.carrinhoService.exibirItens())
-
     //subscribe fica verificando que teve alteracoes na rota
   this.route.params.subscribe((parametros: Params) => {
 
@@ -32,7 +30,6 @@ export class OfertaComponent implements OnInit {
 
  public adicionarItemCarrinho(): void{
   this.carrinhoService.incluirItem(this.oferta);
-  console.log('Oferta',this.carrinhoService.exibirItens())
   }
   
 
