@@ -50,6 +50,7 @@ export class OrdemCompraComponent implements OnInit {
 
         this.ordemCompraService.efetivarCompra(pedido).subscribe((idPedido: any) =>{
         this.idPedidoCompra = idPedido.id;
+        this.carrinhoService.limparCarrinho()
         });
       }
     }
