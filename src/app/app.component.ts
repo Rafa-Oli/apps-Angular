@@ -20,8 +20,7 @@ export class AppComponent implements OnInit{
       storageBucket: "insta-clone-b60a4.appspot.com",
       messagingSenderId: "327084872412",
       appId: "1:327084872412:web:3e16966051d7720d7fda19",
-      measurementId: "G-LQYDQHL46S"
-
+      measurementId: "G-LQYDQHL46S",
     };
 
 
