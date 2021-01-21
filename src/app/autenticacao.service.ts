@@ -3,10 +3,12 @@ import * as firebase from 'firebase';
 
 
 export class Autenticacao{
-    public cadastrarUsuario(usuario: Usuario): void{
-        console.log('chegamos', usuario)
+    
+    public token_id: string
 
-        firebase.default.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
+    public cadastrarUsuario(usuario: Usuario): Promise<any>{
+
+      return  firebase.default.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
         .then((resposta: any) =>{
 
             //remover a senha do atributo senha do obj usuario
@@ -23,9 +25,15 @@ export class Autenticacao{
 
 
     public autenticar(email: string, senha: string): void{
-        console.log('antes de autenticar')
         firebase.default.auth().signInWithEmailAndPassword(email,senha)
-        .then((resposta: any) => console.log(resposta))
+        .then((resposta: any) => {
+            firebase.default.auth().currentUser.getIdToken()
+            .then((idToken: string) => {
+                this.token_id = idToken
+            })
+        }
+        
+        )
         .catch((error: Error) => console.log(error))
     }
 }

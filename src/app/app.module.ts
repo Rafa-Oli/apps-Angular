@@ -11,6 +11,7 @@ import {ReactiveFormsModule} from '@angular/forms'
 import {Autenticacao} from './autenticacao.service';
 import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
+import {RouterModule} from '@angular/router'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   providers: [Autenticacao],
   bootstrap: [AppComponent]
