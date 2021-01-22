@@ -4,7 +4,7 @@ import {Router} from '@angular/router'
 import { Usuario } from "./acesso/usuario.model";
 import * as firebase from 'firebase';
 
-
+@Injectable()
 export class Autenticacao{
     
     public token_id: string
@@ -36,6 +36,7 @@ export class Autenticacao{
             firebase.default.auth().currentUser.getIdToken()
             .then((idToken: string) => {
                 this.token_id = idToken
+                localStorage.setItem('idToken', idToken)
                 this.router.navigate(['/home'])
             })
         }
@@ -45,6 +46,21 @@ export class Autenticacao{
     }
 
     public autenticado(): boolean{
+        if(this.token_id === undefined && localStorage.getItem('idToken') != null){ //faz a verificação se o token esta vazio
+            this.token_id = localStorage.getItem('idToken')
+
+        }
         return this.token_id != undefined
+    }
+
+    public sair(): void{
+        
+        firebase.default.auth().signOut()
+        .then(() => {
+            localStorage.removeItem('idToken')
+            this.token_id= undefined
+            this.router.navigate(['/'])
+
+        })
     }
 }
