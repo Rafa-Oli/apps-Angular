@@ -13,6 +13,7 @@ import {Autenticacao} from './autenticacao.service';
 import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
 import {RouterModule} from '@angular/router';
+import {Bd} from './bd.service';
 import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-publicacao.component'
 
 @NgModule({
@@ -33,7 +34,7 @@ import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-pu
     ReactiveFormsModule,
     RouterModule
   ],
-  providers: [Autenticacao, AutenticacaoGuard],
+  providers: [Autenticacao, AutenticacaoGuard, Bd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
