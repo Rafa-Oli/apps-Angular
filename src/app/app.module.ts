@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
 import {RouterModule} from '@angular/router';
 import {Bd} from './bd.service';
+import { Progresso } from './progresso.service'
 import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-publicacao.component'
 
 @NgModule({
@@ -34,7 +35,7 @@ import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-pu
     ReactiveFormsModule,
     RouterModule
   ],
-  providers: [Autenticacao, AutenticacaoGuard, Bd],
+  providers: [Autenticacao, AutenticacaoGuard, Bd, Progresso],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
