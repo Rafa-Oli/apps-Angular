@@ -12,8 +12,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public sair(): void{
-this.autenticacao.sair()
+  public sair(): void {
+    this.autenticacao.sair()
+  }
+
+  public atualizarTimeLine(): void {
+
   }
 
 }
