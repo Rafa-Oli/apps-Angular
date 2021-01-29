@@ -9,31 +9,36 @@ export class Bd{
     }
     public publicar(publicacao: any): void{
 
-        let nomeImagem = Date.now()
-
-        firebase.default.storage().ref().child(`imagens/${nomeImagem}`)
-        .put(publicacao.imagem)
-        .on(firebase.default.storage.TaskEvent.STATE_CHANGED,
-            //acompanhamento do progresso do upload
-            (snapshot: any) => {
-                this.progresso.status = 'andamento'
-                this.progresso.estado = snapshot
-              //  console.log(snapshot)
-            },
-            (error) =>{
-                this.progresso.status = 'erro'
-               // console.log(error)
-            },
-            () => {
-                //finalização do processo
-                this.progresso.status = 'concluido'
-               // console.log('upload completo')
-            }
-            )
-        
-/*
         firebase.default.database().ref(`publicacoes/${btoa(publicacao.email)}`)
-        .push({ titulo: publicacao.titulo})
-*/
+            .push({ titulo: publicacao.titulo }).then((resposta: any) => {
+               let nomeImagem = resposta.key
+
+
+                firebase.default.storage().ref().child(`imagens/${nomeImagem}`)
+                    .put(publicacao.imagem)
+                    .on(firebase.default.storage.TaskEvent.STATE_CHANGED,
+                        //acompanhamento do progresso do upload
+                        (snapshot: any) => {
+                            this.progresso.status = 'andamento'
+                            this.progresso.estado = snapshot
+                        },
+                        (error) => {
+                            this.progresso.status = 'erro'
+                        },
+                        () => {
+                            //finalização do processo
+                            this.progresso.status = 'concluido'
+                        }
+                    )
+            } )
+
+    }
+
+    public consultaPublicacoes(emailUsuario: string): any{
+          firebase.default.database().ref(`publicacoes/${btoa(emailUsuario)}`)
+          .once('value')
+          .then((snapshot: any) => { //retornando publicacao
+              console.log(snapshot.val())
+          })
     }
 }
