@@ -36,6 +36,7 @@ export class Bd {
         return new Promise((resolve, reject) => {
             //consultar as publicações (database)
             firebase.default.database().ref(`publicacoes/${btoa(emailUsuario)}`)
+                .orderByKey()
                 .once('value')
                 .then((snapshot: any) => { //retornando publicacao
                     // console.log(snapshot.val())
